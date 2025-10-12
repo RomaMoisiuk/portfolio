@@ -1,10 +1,8 @@
 import React from 'react';
 import './globals.css';
-import { geistMono } from '@/ui/fonts';
-import { Home, Wrench, FolderOpen, Mail } from 'lucide-react';
+import NavLinks from '@/ui/nav-link';
 import Link from 'next/link';
-
-const linkStyle = `${geistMono.className} gap-4 flex items-center font-semibold transition-colors hover:opacity-80 hover:text-[#CBEEF3]`;
+import { geistMono } from '@/ui/fonts';
 
 export default function RootLayout({
   children,
@@ -15,30 +13,18 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div className="flex min-h-screen">
-          <aside className="fixed flex h-screen w-64 flex-col bg-[#2a2a2a] p-6 text-white">
+          <aside className="fixed hidden h-screen w-64 flex-col bg-[#2a2a2a] p-6 text-white md:flex">
             <nav className="flex flex-col gap-8">
-              <Link href="/" className={linkStyle}>
-                <Home size={18} />
-                Home
-              </Link>
-              <Link href="/skills" className={linkStyle}>
-                <Wrench size={18} />
-                Skills
-              </Link>
-              <Link href="/experience" className={linkStyle}>
-                <FolderOpen size={18} />
-                Experience overview
-              </Link>
-              <Link href="/contact" className={linkStyle}>
-                <Mail size={18} />
-                Contact
-              </Link>
+              <NavLinks></NavLinks>
             </nav>
-            <div className="mt-auto text-sm text-gray-600">
-              © {new Date().getFullYear()}
-            </div>
+            <button
+              className={`${geistMono} mt-auto rounded-lg bg-[#2783CF] px-5 py-2 text-sm font-medium text-white transition hover:bg-[#2783CF]/50`}
+            >
+              Download CV
+            </button>
           </aside>
-          <main className="ml-64 flex-1 bg-[#212121] p-8">
+
+          <main className="flex-1 bg-[#212121] p-8 md:ml-64">
             <div className="mx-auto max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-7xl">
               {children}
             </div>
