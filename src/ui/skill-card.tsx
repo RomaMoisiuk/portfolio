@@ -203,7 +203,8 @@ export default function SkillCards() {
   return tools.map((tool) => {
     return (
       <div
-        className={`${geistMono.className} flex cursor-pointer flex-col items-center justify-between gap-4 rounded-xl border border-white/20 bg-white/5 p-4 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-sm hover:shadow-white/30`}
+        key={tool.title}
+        className={`${geistMono.className} flex flex-col items-center justify-between gap-4 rounded-xl bg-white/5 p-4 transition-all hover:-translate-y-1 hover:scale-105 hover:bg-white/10`}
       >
         <SvgIcon
           title={tool.title}
