@@ -64,6 +64,5 @@ function isActive(pathname: string, href: string) {
   const getRoot = (s: string) => s.split('/')[1];
   const a = getRoot(pathname);
   const b = getRoot(href);
-  console.log('a: ' + a, 'b: ' + b);
   return a === b;
 }
