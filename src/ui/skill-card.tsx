@@ -215,12 +215,7 @@ export default function SkillCards() {
   if (filteredTools.length === 0) {
     return (
       <div className="text-white">
-        <p className="mb-2">Whoops... Nothing to display</p>
-        <p className="mb-2">
-          Either I do not have this tool in my skillset or I forgot to include
-          it
-        </p>
-        <p>P.S. you could've made a typo :)</p>
+        <p className="mb-2">No results by the given search parameters.</p>
       </div>
     );
   }
