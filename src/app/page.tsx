@@ -72,7 +72,7 @@ export default function Page() {
       <div className="mt-10 flex items-center gap-4 text-2xl text-white/60">
         {socialLinksData.map((link) => (
           <SocialLink
-            key={link.id}
+            key={link.title}
             href={link.href}
             title={link.title}
             svgPath={link.svgPath}

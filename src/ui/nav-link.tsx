@@ -15,8 +15,8 @@ const links = [
     icon: Home,
   },
   {
-    href: '/skills',
-    text: 'Skills',
+    href: '/stack/skills',
+    text: 'Stack',
     icon: Wrench,
   },
   {
@@ -34,24 +34,35 @@ const links = [
 export default function NavLinks() {
   const pathname = usePathname();
 
+  console.log(pathname);
+
   return (
     <>
-      {links.map((link) => {
-        const Icon = link.icon;
+      {links.map(({ href, text, icon }) => {
+        const active = isActive(pathname, href);
+        const Icon = icon;
 
         return (
           <Link
-            key={link.text}
-            href={link.href}
+            key={text}
+            href={href}
+            aria-current={active ? 'page' : undefined}
             className={clsx(linkStyle, {
-              'bg-white/5 font-medium text-white/100': pathname === link.href,
+              'bg-white/5 font-medium text-white/100': active,
             })}
           >
             <Icon size={18} />
-            <p>{link.text}</p>
+            <p>{text}</p>
           </Link>
         );
       })}
     </>
   );
+}
+
+function isActive(pathname: string, href: string) {
+  const getRoot = (s: string) => s.split('/')[1];
+  const a = getRoot(pathname);
+  const b = getRoot(href);
+  return a === b;
 }
