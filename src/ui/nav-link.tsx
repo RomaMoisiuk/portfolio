@@ -21,7 +21,7 @@ const links = [
   },
   {
     href: '/experience',
-    text: 'Experience Overview',
+    text: 'Experience',
     icon: FolderOpen,
   },
   {
