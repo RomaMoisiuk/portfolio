@@ -1,10 +1,11 @@
 import SkillCards from '@/ui/skill-card';
 import SearchBar from '@/ui/search';
-import { hankenGrotesk } from '../../../ui/fonts';
+import { hankenGrotesk } from '@/ui/fonts';
+import { Suspense } from 'react';
 
 export default function ToolsPage() {
   return (
-    <>
+    <Suspense fallback={<div className="text-white">Loading tools...</div>}>
       <SearchBar searchText="Search for tools..." />
       <div className={`${hankenGrotesk.className} mt-10`}>
         <div className="mt-10">
@@ -14,6 +15,6 @@ export default function ToolsPage() {
           </div>
         </div>
       </div>
-    </>
+    </Suspense>
   );
 }
