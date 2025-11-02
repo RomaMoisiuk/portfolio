@@ -41,7 +41,7 @@ export default function Page() {
         <p
           className={`${fontFamily} mt-6 max-w-xl text-base text-white md:mt-10 md:text-lg`}
         >
-          Hi 👋, my name is Illia. I am a Software Development Engineer in Test.
+          Hi 👋, my name is Illia. I’m a Software Development Engineer in Test.
         </p>
         <p
           className={`${fontFamily} mt-2 max-w-xl text-base text-white md:text-lg`}
@@ -52,7 +52,7 @@ export default function Page() {
         <p
           className={`${fontFamily} mt-2 max-w-xl text-base text-white/70 md:text-lg`}
         >
-          📍 Poznań, Poland 🇵🇱 · 🇺🇦
+          📍 Kharkiv, Ukraine 🇺🇦 · Poznań, Poland 🇵🇱
         </p>
       </div>
       <div className="mt-6 flex flex-wrap gap-3">
@@ -63,7 +63,7 @@ export default function Page() {
           Contact Me
         </Link>
         <Link
-          href="/contact"
+          href="/experience"
           className={`${geistMono} rounded-lg border border-white/20 px-5 py-2 text-sm font-medium text-white transition hover:bg-white/10`}
         >
           View Projects
