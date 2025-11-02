@@ -37,7 +37,7 @@ export default function ContactPage() {
       <div className="mx-auto max-w-4xl">
         <h1 className="mb-4 text-4xl font-bold text-white">Get In Touch</h1>
         <p className="mb-12 text-lg text-white/70">
-          I'm always open to discussing new opportunities, interesting projects,
+          I’m always open to discussing new opportunities, interesting projects,
           or just having a chat about QA and automation.
         </p>
 
