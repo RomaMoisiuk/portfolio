@@ -1,10 +1,10 @@
 'use client';
 
-import { ArrowDown } from 'lucide-react';
 import { hankenGrotesk } from '@/ui/fonts';
-import { useState } from 'react';
 import SearchBar from '@/ui/search';
+import { ArrowDown } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
+import { useState } from 'react';
 
 interface ISkillSection {
   id: string;
@@ -19,128 +19,159 @@ interface ISkills {
 
 const skillSections: Array<ISkillSection> = [
   {
-    id: 'automation',
-    title: '🧭 Automation & Engineering',
+    id: 'backend-engineering',
+    title: '⚙️ Backend Engineering',
     skills: [
       {
-        title: 'Automation Framework Setup',
+        title: 'Node.js & TypeScript',
         description:
-          'Building scalable UI, API, and mobile automation frameworks from scratch with modern tools.',
+          'Design and build production services with Express/NestJS/Koa/Fastify, strong typing, clean modular structure, and performance-minded code.'
       },
       {
-        title: 'Test Architecture Design',
+        title: 'Service Development',
         description:
-          'Structuring robust, maintainable automation solutions with clean code principles.',
+          'Implement REST APIs, business logic, background jobs, schedulers, and secure integrations (payments, data imports, third-party APIs).'
       },
       {
-        title: 'Regression & Smoke Testing',
+        title: 'Microservices',
         description:
-          'Implementing fast, stable test suites for continuous delivery.',
-      },
-      {
-        title: 'Cross-functional Collaboration',
-        description:
-          'Working closely with dev and product teams to align testing with real business needs.',
-      },
-    ],
+          'Split monoliths, define service boundaries/contracts, handle inter-service communication, and manage rollouts safely.'
+      }
+    ]
   },
   {
-    id: 'infra',
-    title: '🧰 Infrastructure & CI/CD',
+    id: 'frontend-engineering',
+    title: '🎨 Frontend Engineering',
     skills: [
       {
-        title: 'CI/CD Integration',
+        title: 'React / Vue / Next.js',
         description:
-          'Connecting automation with pipelines (Jenkins, GitHub Actions) for smooth delivery.',
+          'Build robust UIs with modern patterns, state management, and component-driven development for scalable frontends.'
       },
       {
-        title: 'Containerized Test Environments',
+        title: 'Styling & UX',
         description:
-          'Using Docker and cloud infrastructure to run tests at scale.',
-      },
-      {
-        title: 'Custom Reporting & Metrics',
-        description:
-          'Creating dashboards and reports for visibility into test health and coverage.',
-      },
-      {
-        title: 'Cloud Integration',
-        description:
-          'Running distributed test suites on GCP and other environments.',
-      },
-    ],
+          'Tailwind CSS, SCSS/LESS, responsive layouts, accessibility-minded implementation, and performance optimization.'
+      }
+    ]
   },
   {
-    id: 'qa',
-    title: '🧪 Quality & Test',
+    id: 'databases-storage',
+    title: '🗄️ Databases & Storage',
     skills: [
       {
-        title: 'Test Strategy & Planning',
-        description: 'Designing test approaches that scale with the product.',
-      },
-      {
-        title: 'Test Estimation & Risk Analysis',
+        title: 'SQL & NoSQL',
         description:
-          'Identifying risks early and ensuring realistic delivery timelines.',
+          'MongoDB, PostgreSQL, MySQL/MariaDB, DynamoDB — schema design, indexing, migrations, and query optimization.'
       },
       {
-        title: 'Documentation & Process Setup',
-        description: 'Creating clear processes and knowledge bases for teams.',
-      },
-      {
-        title: 'Mentorship & Leadership',
+        title: 'Caching & State',
         description:
-          'Supporting team growth through guidance, reviews, and shared best practices.',
-      },
-    ],
+          'Redis for caching, rate limiting, queues, and ephemeral state to improve throughput and latency.'
+      }
+    ]
   },
   {
-    id: 'tech',
-    title: '🧑‍💻 Technical Proficiency',
+    id: 'cloud-devops',
+    title: '☁️ Cloud & DevOps',
     skills: [
       {
-        title: 'JavaScript / TypeScript',
-        description: 'Main languages for automation and tooling.',
-      },
-      {
-        title: 'Automation Tools',
+        title: 'Cloud Platforms',
         description:
-          'Nightwatch, Cypress, Selenium, Appium, WebdriverIO, Mocha.',
+          'GCP and AWS for app hosting, storage, and managed services; collaborate closely with DevOps on infra needs.'
       },
       {
-        title: 'Version Control',
-        description: 'Git, GitHub, Jira for collaboration and tracking.',
-      },
-      {
-        title: 'API Testing',
-        description: 'Postman and custom frameworks for REST API verification.',
-      },
-    ],
+        title: 'Containers & IaC',
+        description:
+          'Docker for local/dev reproducibility; Terraform familiarity for provisioning; CI/CD with Jenkins and GitHub Actions.'
+      }
+    ]
   },
   {
-    id: 'soft_skills',
-    title: '🧭 Soft Skills & Domain Experience',
+    id: 'observability-reliability',
+    title: '📈 Observability & Reliability',
     skills: [
       {
-        title: 'Problem Solving',
+        title: 'Monitoring & Alerting',
         description:
-          'Identifying bottlenecks and engineering effective solutions.',
+          'Set up and maintain service monitoring/alerting dashboards, define SLO-oriented signals, and own on-call rotations.'
       },
       {
-        title: 'Client Communication',
-        description: 'Translating technical details into clear business value.',
-      },
-      {
-        title: 'Knowledge Sharing',
-        description: 'Conducting training and QA process onboarding.',
-      },
-      {
-        title: 'Domain Expertise',
+        title: 'Performance & Stability',
         description:
-          'SaaS and healthcare projects, long-term product delivery.',
-      },
-    ],
+          'Identify bottlenecks, optimize hot paths, add tests/health checks, and harden services for high availability.'
+      }
+    ]
   },
+  {
+    id: 'testing-quality',
+    title: '🧪 Testing & Quality',
+    skills: [
+      {
+        title: 'Automated Testing',
+        description:
+          'Jest, React Testing Library, Mocha, PHPUnit; pragmatic TDD/coverage for unit, integration, and contract tests.'
+      },
+      {
+        title: 'Quality Practices',
+        description:
+          'Code reviews, linting/formatting, CI gates, and specs that align engineering work with product intent.'
+      }
+    ]
+  },
+  {
+    id: 'architecture-design',
+    title: '🏗️ Architecture & System Design',
+    skills: [
+      {
+        title: 'System Decomposition',
+        description:
+          'Translate product requirements into services, data models, and workflows; document trade-offs and interfaces.'
+      },
+      {
+        title: 'Scalability & Patterns',
+        description:
+          'Apply patterns like event-driven flows, queues, idempotency, etc. to keep systems resilient.'
+      }
+    ]
+  },
+  {
+    id: 'collaboration-leadership',
+    title: '🤝 Collaboration & Leadership',
+    skills: [
+      {
+        title: 'Cross-Team Delivery',
+        description:
+          'Work closely with PM, Design, QA, DevOps, and peer teams; clarify specs, plan milestones, and align timelines.'
+      },
+      {
+        title: 'Mentoring & Onboarding',
+        description:
+          'Onboard new teammates, share context and standards, run reviews, and support estimations and task splitting.'
+      },
+      {
+        title: 'Technical Interviews',
+        description:
+          'Conduct technical interviews, provide feedback to hiring managers, and help with candidate selection.'
+      }
+    ]
+  },
+  {
+    id: 'tooling-workflow',
+    title: '🧰 Tooling & Workflow',
+    skills: [
+      {
+        title: 'Developer Experience',
+        description:
+          'Monorepos with Turborepo, efficient local setups, scripts, and docs that speed up day-to-day development.'
+      },
+      {
+        title: 'Mapping & Specialized Tools',
+        description:
+          'Mapbox GL and related libraries for geospatial visualizations when projects require spatial data.'
+      }
+    ]
+  }
 ];
 
 export default function SkillSectionClient() {

@@ -1,7 +1,7 @@
-import { hankenGrotesk } from '@/ui/fonts';
-import Link from 'next/link';
-import { ExternalLink } from 'lucide-react';
 import { socialLinksData } from '@/data/social-links-data';
+import { hankenGrotesk } from '@/ui/fonts';
+import { ExternalLink } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ContactPage() {
   const gitHubIconPath = socialLinksData[0].svgPath;
@@ -12,33 +12,33 @@ export default function ContactPage() {
     {
       iconPath: emailIconPath,
       label: 'Email',
-      value: 'polovynkoilya@gmail.com',
-      href: 'mailto:polovynkoilya@gmail.com',
-      description: 'Best way to reach me for opportunities',
+      value: 'moisiuk.roman@gmail.com',
+      href: 'mailto:moisiuk.roman@gmail.com',
+      description: 'Use it if you prefer email communication',
     },
     {
       iconPath: linkedInIconPath,
       label: 'LinkedIn',
-      value: 'Illia Polovynko',
-      href: 'https://www.linkedin.com/in/illia-polovynko/',
-      description: 'Connect with me professionally',
+      value: 'Roman Moisiuk',
+      href: 'https://www.linkedin.com/in/roman-m-914336b4/',
+      description: 'Connect with me on LinkedIn',
     },
     {
       iconPath: gitHubIconPath,
       label: 'GitHub',
-      value: '@yoypolkin',
-      href: 'https://github.com/yoypolkin',
-      description: 'Check out my code and projects',
+      value: '@RomaMoisiuk',
+      href: 'https://github.com/RomaMoisiuk',
+      description: 'Check out my GitHub',
     },
   ];
 
   return (
     <div className={`${hankenGrotesk.className} p-8`}>
       <div className="mx-auto max-w-4xl">
-        <h1 className="mb-4 text-4xl font-bold text-white">Get In Touch</h1>
+        <h1 className="mb-4 text-4xl font-bold text-white">Let's Connect</h1>
         <p className="mb-12 text-lg text-white/70">
-          I’m always open to discussing new opportunities, interesting projects,
-          or just having a chat about QA and automation.
+          Feel free to reach out to discuss new opportunities, interesting projects,
+          or just have a chat about software development.
         </p>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -79,22 +79,6 @@ export default function ContactPage() {
             );
           })}
         </div>
-
-        {/* <div className="mt-16 rounded-xl bg-[#2783CF]/10 p-8 text-center">
-          <h2 className="mb-3 text-2xl font-bold text-white">
-            Let's Build Something Amazing
-          </h2>
-          <p className="mb-6 text-white/70">
-            Whether you need automation expertise, QA leadership, or want to
-            discuss testing strategies - I'd love to hear from you.
-          </p>
-          <Link
-            href="mailto:polovynkoilya@gmail.com"
-            className="inline-block rounded-lg bg-[#2783CF] px-6 py-3 font-semibold text-white transition-all hover:bg-[#2783CF]/80"
-          >
-            Download CV
-          </Link>
-        </div> */}
       </div>
     </div>
   );

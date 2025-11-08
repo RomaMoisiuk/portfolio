@@ -1,11 +1,11 @@
 'use client';
 
-import React from 'react';
-import '../globals.css';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { geistMono } from '@/ui/fonts';
 import clsx from 'clsx';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import React from 'react';
+import '../globals.css';
 
 export default function StackLayout({
   children,
@@ -13,7 +13,6 @@ export default function StackLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname() || '';
-  console.log(pathname);
   const tabBase = `${geistMono.className} rounded-lg px-3 py-2 text-white/70 hover:text-white hover:bg-white/5 transition`;
   const isTools = pathname.includes('/stack/tools');
   const isSkills = pathname.includes('/stack/skills');

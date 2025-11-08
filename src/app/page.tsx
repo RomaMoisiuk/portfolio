@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import { hankenGrotesk, geistMono } from '@/ui/fonts';
-import Link from 'next/link';
-import SocialLink from '@/ui/social-link';
 import { socialLinksData } from '@/data/social-links-data';
+import { geistMono, hankenGrotesk } from '@/ui/fonts';
+import SocialLink from '@/ui/social-link';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const fontFamily = hankenGrotesk.className;
 
@@ -11,48 +11,48 @@ export default function Page() {
     <>
       <div className="relative aspect-[4/1] w-full rounded-xl">
         <Image
-          src="/main-bg.png"
-          alt="Background with code"
+          src="/main-bg.jpeg"
+          alt="Abstract digital blueprint"
           fill
           priority
           className="rounded-xl object-cover"
         />
-        <div className="absolute bottom-0 left-1/2 h-24 w-24 -translate-x-1/2 translate-y-1/2 rounded-full border-8 border-[#212121] sm:h-28 sm:w-28 md:left-20 md:h-40 md:w-40 md:-translate-x-0">
+        <div className="absolute bottom-0 left-1/2 h-32 w-32 -translate-x-1/2 translate-y-1/2 rounded-full border-8 border-[#212121] sm:h-32 sm:w-32 md:left-20 md:h-48 md:w-48 md:-translate-x-0">
           <Image
-            src="/me.png"
-            alt="Background with code"
+            src="/me.jpg"
+            alt="Roman Moisiuk"
             width={400}
             height={400}
             className="z-10 rounded-full object-cover"
           />
         </div>
       </div>
-      <div className="mt-14 flex w-full flex-col rounded-xl p-6 sm:mt-16 md:mt-20 md:p-8">
+      <div className="mt-18 flex w-full flex-col rounded-xl p-6 sm:mt-16 md:mt-20 md:p-8">
         <h1
           className={`${fontFamily} text-3xl font-bold leading-tight text-white md:text-4xl lg:text-5xl`}
         >
-          Illia Polovynko
+          Roman Moisiuk
         </h1>
         <h2
           className={`${fontFamily} text-xl font-medium text-white/50 md:text-2xl`}
         >
-          Senior Automation QA Engineer | SDET
+          Senior Full Stack Engineer
         </h2>
         <p
           className={`${fontFamily} mt-6 max-w-xl text-base text-white md:mt-10 md:text-lg`}
         >
-          Hi 👋, my name is Illia. I’m a Software Development Engineer in Test.
+          Hi 👋, my name is Roman. I’m a Senior Full Stack Engineer.
         </p>
         <p
           className={`${fontFamily} mt-2 max-w-xl text-base text-white md:text-lg`}
         >
-          I’m passionate about building scalable test frameworks, reliable
-          automation infrastructure, and solving real problems. 🤖
+          I’m passionate about building scalable web applications, reliable
+          infrastructure, and solving real problems. 🤖
         </p>
         <p
           className={`${fontFamily} mt-2 max-w-xl text-base text-white/70 md:text-lg`}
         >
-          📍 Kharkiv, Ukraine 🇺🇦 · Poznań, Poland 🇵🇱
+          📍 Romania 🇷🇴
         </p>
       </div>
       <div className="mt-6 flex flex-wrap gap-3">
