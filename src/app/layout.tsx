@@ -1,6 +1,7 @@
-import NavLinks from '@/ui/nav-link';
-import React from 'react';
 import { getSiteUrl } from '@/lib/site-url';
+import NavLinks from '@/ui/nav-link';
+import { Analytics } from '@vercel/analytics/next';
+import React from 'react';
 import './globals.css';
 
 const siteUrl = getSiteUrl();
@@ -134,6 +135,7 @@ export default function RootLayout({
             </div>
           </main>
         </div>
+        <Analytics />
       </body>
     </html>
   );
