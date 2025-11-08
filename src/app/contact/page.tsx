@@ -35,7 +35,7 @@ export default function ContactPage() {
   return (
     <div className={`${hankenGrotesk.className} p-8`}>
       <div className="mx-auto max-w-4xl">
-        <h1 className="mb-4 text-4xl font-bold text-white">Let's Connect</h1>
+        <h1 className="mb-4 text-4xl font-bold text-white">Let&apos;s Connect</h1>
         <p className="mb-12 text-lg text-white/70">
           Feel free to reach out to discuss new opportunities, interesting projects,
           or just have a chat about software development.
@@ -51,7 +51,7 @@ export default function ContactPage() {
                 className="group rounded-xl bg-white/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10"
               >
                 <div className="mb-4 flex items-center gap-3">
-                  <div className="rounded-lg bg-[#2783CF]/20 p-3">
+                  <div className="rounded-lg bg-[#06b6d4]/20 p-3">
                     <svg
                       role="img"
                       viewBox="0 0 24 24"
@@ -67,11 +67,11 @@ export default function ContactPage() {
                     {method.label}
                   </h3>
                 </div>
-                <p className="mb-2 font-mono text-sm text-white/90">
+                <p className="mb-2 font-mono text-sm text-white/70">
                   {method.value}
                 </p>
-                <p className="text-sm text-white/60">{method.description}</p>
-                <div className="mt-4 flex items-center gap-2 text-sm text-[#2783CF] opacity-0 transition-opacity group-hover:opacity-100">
+                <p className="text-sm text-white/70">{method.description}</p>
+                <div className="mt-4 flex items-center gap-2 text-sm text-[#06b6d4] opacity-0 transition-opacity group-hover:opacity-100">
                   <span>Connect</span>
                   <ExternalLink size={14} />
                 </div>

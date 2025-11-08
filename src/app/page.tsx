@@ -17,7 +17,7 @@ export default function Page() {
           priority
           className="rounded-xl object-cover"
         />
-        <div className="absolute bottom-0 left-1/2 h-32 w-32 -translate-x-1/2 translate-y-1/2 rounded-full border-8 border-[#212121] sm:h-32 sm:w-32 md:left-20 md:h-48 md:w-48 md:-translate-x-0">
+        <div className="absolute bottom-0 left-1/2 h-32 w-32 -translate-x-1/2 translate-y-1/2 rounded-full border-8 border-[#0d1b2a] sm:h-32 sm:w-32 md:left-20 md:h-48 md:w-48 md:-translate-x-0">
           <Image
             src="/me.jpg"
             alt="Roman Moisiuk"
@@ -34,7 +34,7 @@ export default function Page() {
           Roman Moisiuk
         </h1>
         <h2
-          className={`${fontFamily} text-xl font-medium text-white/50 md:text-2xl`}
+          className={`${fontFamily} text-xl font-medium text-white/70 md:text-2xl`}
         >
           Senior Full Stack Engineer
         </h2>
@@ -46,11 +46,10 @@ export default function Page() {
         <p
           className={`${fontFamily} mt-2 max-w-xl text-base text-white md:text-lg`}
         >
-          I’m passionate about building scalable web applications, reliable
-          infrastructure, and solving real problems. 🤖
+          I have 9 years of hands-on experience in building and scaling web applications using modern technologies. 💻
         </p>
         <p
-          className={`${fontFamily} mt-2 max-w-xl text-base text-white/70 md:text-lg`}
+          className={`${fontFamily} mt-2 max-w-xl text-base text-white/80 md:text-lg`}
         >
           📍 Romania 🇷🇴
         </p>
@@ -58,7 +57,7 @@ export default function Page() {
       <div className="mt-6 flex flex-wrap gap-3">
         <Link
           href="/contact"
-          className={`${geistMono} rounded-lg bg-[#2783CF] px-5 py-2 text-sm font-medium text-white transition hover:bg-[#2783CF]/50`}
+          className={`${geistMono} rounded-lg bg-[#06b6d4] px-5 py-2 text-sm font-medium text-white transition hover:bg-[#06b6d4]/50`}
         >
           Contact Me
         </Link>
@@ -69,7 +68,7 @@ export default function Page() {
           View Projects
         </Link>
       </div>
-      <div className="mt-10 flex items-center gap-4 text-2xl text-white/60">
+      <div className="mt-10 flex items-center gap-4 text-2xl text-white/70">
         {socialLinksData.map((link) => (
           <SocialLink
             key={link.title}

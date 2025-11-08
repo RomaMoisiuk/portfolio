@@ -24,13 +24,13 @@ export default function RootLayout({
     <html lang="en">
       <body suppressHydrationWarning>
         <div className="flex min-h-screen">
-          <aside className="fixed hidden h-screen w-64 flex-col bg-[#2a2a2a] p-6 text-white md:flex">
+          <aside className="fixed hidden h-screen w-64 flex-col bg-[#142c46] p-6 text-white md:flex">
             <nav className="flex flex-col gap-8">
               <NavLinks></NavLinks>
             </nav>
           </aside>
 
-          <main className="flex-1 bg-[#212121] p-8 md:ml-64">
+          <main className="flex-1 bg-[#0d1b2a] p-8 md:ml-64">
             <div className="mx-auto max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-7xl">
               {children}
             </div>

@@ -26,7 +26,7 @@ export default function SearchBar({ searchText }: { searchText: string }) {
 
   return (
     <div
-      className={`${geistMono.className} flex w-1/2 items-center gap-2 rounded-xl bg-[#2a2a2a] pl-3`}
+      className={`${geistMono.className} flex w-1/2 items-center gap-2 rounded-xl bg-[#142c46] pl-3`}
     >
       <Search size={18} color="white" />
       <input

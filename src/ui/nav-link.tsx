@@ -6,7 +6,7 @@ import { geistMono } from '@/ui/fonts';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 
-const linkStyle = `${geistMono.className} flex items-center gap-4 rounded-lg px-3 py-2 text-white/70 hover:text-white hover:bg-white/5 transition`;
+const linkStyle = `${geistMono.className} flex items-center gap-4 rounded-lg px-3 py-2 text-white hover:bg-[#06b6d4] transition`;
 
 const links = [
   {
@@ -48,7 +48,7 @@ export default function NavLinks() {
             href={href}
             aria-current={active ? 'page' : undefined}
             className={clsx(linkStyle, {
-              'bg-white/5 font-medium text-white/100': active,
+              'bg-[#06b6d4] font-medium text-white': active,
             })}
           >
             <Icon size={18} />

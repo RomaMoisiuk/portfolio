@@ -13,7 +13,7 @@ export default function StackLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname() || '';
-  const tabBase = `${geistMono.className} rounded-lg px-3 py-2 text-white/70 hover:text-white hover:bg-white/5 transition`;
+  const tabBase = `${geistMono.className} rounded-lg px-3 py-2 text-white hover:bg-[#06b6d4] transition`;
   const isTools = pathname.includes('/stack/tools');
   const isSkills = pathname.includes('/stack/skills');
 
@@ -22,14 +22,14 @@ export default function StackLayout({
       <div className="flex items-center gap-2">
         <Link
           href="/stack/skills"
-          className={clsx(tabBase, isSkills && 'bg-white/5 text-white')}
+          className={clsx(tabBase, isSkills && 'bg-[#06b6d4] text-white')}
           aria-current={isSkills ? 'page' : undefined}
         >
           Skills
         </Link>
         <Link
           href="/stack/tools"
-          className={clsx(tabBase, isTools && 'bg-white/5 text-white')}
+          className={clsx(tabBase, isTools && 'bg-[#06b6d4] text-white')}
           aria-current={isTools ? 'page' : undefined}
         >
           Tools

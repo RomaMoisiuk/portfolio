@@ -16,7 +16,7 @@ export default function ExperienceTimeline() {
   const isExpanded = visibleCount >= total;
 
   return (
-    <div className={`${hankenGrotesk.className} bg-[#212121] p-8`}>
+    <div className={`${hankenGrotesk.className} bg-[#0d1b2a] p-8`}>
       <h1 className="mb-16 text-4xl font-bold text-white">
         Experience Overview
       </h1>
@@ -35,7 +35,7 @@ export default function ExperienceTimeline() {
               <h2 className="mb-1 text-2xl font-bold text-white">
                 {experience.position}
               </h2>
-              <p className="text-sm text-white/50">{experience.company}</p>
+              <p className="text-sm text-white/70">{experience.company}</p>
             </div>
 
             {/* --- Timeline --- */}
@@ -43,8 +43,8 @@ export default function ExperienceTimeline() {
               {index !== visibleCount - 1 && (
                 <div className="absolute left-1/2 top-8 h-full w-0.5 -translate-x-1/2 bg-white/20"></div>
               )}
-              <div className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-4 border-[#2a2a2a] bg-[#212121]">
-                <div className="h-3 w-3 rounded-full bg-[#2783CF]" />
+              <div className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-4 border-[#142c46] bg-[#0d1b2a]">
+                <div className="h-3 w-3 rounded-full bg-[#06b6d4]" />
               </div>
             </div>
 
@@ -59,7 +59,7 @@ export default function ExperienceTimeline() {
                 </p>
                 <button
                   onClick={() => handleOpenModal(index)}
-                  className="cursor-pointer rounded-lg bg-[#2783CF] px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-[#2783CF]/80"
+                  className="cursor-pointer rounded-lg bg-[#06b6d4] px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-[#06b6d4]/80"
                 >
                   Read More
                 </button>
@@ -74,7 +74,7 @@ export default function ExperienceTimeline() {
             onClick={() =>
               setVisibleCount(isExpanded ? 3 : experienceData.length)
             }
-            className="w-full cursor-pointer rounded-lg bg-white/5 px-4 py-2 text-sm font-medium text-white/80 transition hover:bg-white/10"
+            className="w-full cursor-pointer rounded-lg bg-white/5 px-4 py-2 text-sm font-medium text-white/70 transition hover:bg-[#06b6d4]"
           >
             {isExpanded ? 'Show less' : 'Show more'}
           </button>
