@@ -68,21 +68,28 @@ export default function SkillSectionClient() {
                   key={section.id}
                   className={`rounded-xl transition hover:bg-white/10 ${isOpen ? 'bg-white/10' : 'bg-[#142c46]'}`}
                 >
-                  <div
-                    className="flex p-4 cursor-pointer items-center justify-between"
+                  <button
+                    type="button"
+                    className="flex w-full p-4 cursor-pointer items-center justify-between focus:outline-none focus:ring-2 focus:ring-[#06b6d4] focus:ring-offset-2 focus:ring-offset-[#142c46]"
                     onClick={() => toggleSection(section.id)}
+                    aria-expanded={isOpen}
+                    aria-controls={`section-${section.id}`}
                   >
-                    <p className="text-xl font-bold text-white">
+                    <span id={`section-title-${section.id}`} className="text-xl font-bold text-white">
                       {section.title}
-                    </p>
+                    </span>
                     <ArrowDown
                       color="white"
+                      aria-hidden="true"
                       className={`transition-transform ${
                         isOpen ? 'rotate-180' : ''
                       }`}
                     />
-                  </div>
+                  </button>
                   <div
+                    id={`section-${section.id}`}
+                    role="region"
+                    aria-labelledby={`section-title-${section.id}`}
                     className={`overflow-hidden transition-all ${
                       isOpen
                         ? 'py-5 max-h-[1000px] opacity-100'

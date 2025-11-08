@@ -48,7 +48,9 @@ export default function ContactPage() {
                 key={method.label}
                 href={method.href}
                 target={method.href.startsWith('http') ? '_blank' : undefined}
-                className="group rounded-xl bg-white/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10"
+                rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="group rounded-xl bg-white/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#06b6d4] focus:ring-offset-2 focus:ring-offset-[#0d1b2a]"
+                aria-label={`${method.label}: ${method.value}${method.href.startsWith('http') ? ' (opens in new tab)' : ''}`}
               >
                 <div className="mb-4 flex items-center gap-3">
                   <div className="rounded-lg bg-[#06b6d4]/20 p-3">

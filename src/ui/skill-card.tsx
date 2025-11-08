@@ -27,9 +27,11 @@ export default function SkillCards() {
 
   return filteredTools.map((tool) => {
     return (
-      <div
+      <article
         key={tool.title}
-        className={`${hankenGrotesk.className} flex flex-col items-center justify-between gap-4 rounded-xl bg-white/5 p-4 transition-all hover:-translate-y-1 hover:scale-105 hover:bg-[#06b6d4]`}
+        className={`${hankenGrotesk.className} flex flex-col items-center justify-between gap-4 rounded-xl bg-white/5 p-4 transition-all hover:-translate-y-1 hover:scale-105 hover:bg-[#06b6d4] focus-within:ring-2 focus-within:ring-[#06b6d4] focus-within:ring-offset-2 focus-within:ring-offset-[#0d1b2a]`}
+        tabIndex={0}
+        aria-label={`${tool.title} technology`}
       >
         <SvgIcon
           title={tool.title}
@@ -37,8 +39,8 @@ export default function SkillCards() {
           color={tool.color}
           needsWhiteBg={tool.needsWhiteBg}
         />
-        <p className="text-white">{tool.title}</p>
-      </div>
+        <h3 className="text-white text-center">{tool.title}</h3>
+      </article>
     );
   });
 }

@@ -34,29 +34,28 @@ const links = [
 export default function NavLinks() {
   const pathname = usePathname();
 
-  console.log(pathname);
-
   return (
-    <>
+    <ul className="list-none">
       {links.map(({ href, text, icon }) => {
         const active = isActive(pathname, href);
         const Icon = icon;
 
         return (
-          <Link
-            key={text}
-            href={href}
-            aria-current={active ? 'page' : undefined}
-            className={clsx(linkStyle, {
-              'bg-[#06b6d4] font-medium text-white': active,
-            })}
-          >
-            <Icon size={18} />
-            <p>{text}</p>
-          </Link>
+          <li className="mb-2" key={text}>
+            <Link
+              href={href}
+              aria-current={active ? 'page' : undefined}
+              className={clsx(linkStyle, {
+                'bg-[#06b6d4] font-medium text-white': active,
+              })}
+            >
+              <Icon size={18} aria-hidden="true" />
+              <span>{text}</span>
+            </Link>
+          </li>
         );
       })}
-    </>
+    </ul>
   );
 }
 

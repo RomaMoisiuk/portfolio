@@ -21,7 +21,7 @@ export default function ExperienceTimeline() {
         Experience Overview
       </h1>
 
-      <div className="mx-auto max-w-7xl">
+      <div id="experience-timeline" className="mx-auto max-w-7xl">
         {experienceData.slice(0, visibleCount).map((experience, index) => (
           <div
             key={index}
@@ -59,7 +59,8 @@ export default function ExperienceTimeline() {
                 </p>
                 <button
                   onClick={() => handleOpenModal(index)}
-                  className="cursor-pointer rounded-lg bg-[#06b6d4] px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-[#06b6d4]/80"
+                  className="cursor-pointer rounded-lg bg-[#06b6d4] px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-[#06b6d4]/80 focus:outline-none focus:ring-2 focus:ring-[#06b6d4] focus:ring-offset-2 focus:ring-offset-white/5"
+                  aria-label={`Read more about ${experience.projectTitle}`}
                 >
                   Read More
                 </button>
@@ -74,9 +75,11 @@ export default function ExperienceTimeline() {
             onClick={() =>
               setVisibleCount(isExpanded ? 3 : experienceData.length)
             }
-            className="w-full cursor-pointer rounded-lg bg-white/5 px-4 py-2 text-sm font-medium text-white/70 transition hover:bg-[#06b6d4]"
+            className="w-full cursor-pointer rounded-lg bg-white/5 px-4 py-2 text-sm font-medium text-white/70 transition hover:bg-[#06b6d4] focus:outline-none focus:ring-2 focus:ring-[#06b6d4] focus:ring-offset-2 focus:ring-offset-[#0d1b2a]"
+            aria-expanded={isExpanded}
+            aria-controls="experience-timeline"
           >
-            {isExpanded ? 'Show less' : 'Show more'}
+            {isExpanded ? 'Show less' : `Show more (${total - 3} more items)`}
           </button>
         </div>
       </div>

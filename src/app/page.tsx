@@ -3,6 +3,18 @@ import { geistMono, hankenGrotesk } from '@/ui/fonts';
 import SocialLink from '@/ui/social-link';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Home',
+  description:
+    'Senior Full Stack Engineer with 9+ years of experience building scalable web applications. Specialized in Node.js, TypeScript, React, and cloud infrastructure.',
+  openGraph: {
+    title: 'Roman Moisiuk - Senior Full Stack Engineer',
+    description:
+      'Senior Full Stack Engineer with 9+ years of experience building scalable web applications.',
+  },
+};
 
 const fontFamily = hankenGrotesk.className;
 
@@ -12,7 +24,7 @@ export default function Page() {
       <div className="relative aspect-[4/1] w-full rounded-xl">
         <Image
           src="/main-bg.jpeg"
-          alt="Abstract digital blueprint"
+          alt="Digital technology background representing software engineering and web development"
           fill
           priority
           className="rounded-xl object-cover"
@@ -20,10 +32,11 @@ export default function Page() {
         <div className="absolute bottom-0 left-1/2 h-32 w-32 -translate-x-1/2 translate-y-1/2 rounded-full border-8 border-[#0d1b2a] sm:h-32 sm:w-32 md:left-20 md:h-48 md:w-48 md:-translate-x-0">
           <Image
             src="/me.jpg"
-            alt="Roman Moisiuk"
+            alt="Roman Moisiuk - Senior Full Stack Engineer"
             width={400}
             height={400}
             className="z-10 rounded-full object-cover"
+            priority
           />
         </div>
       </div>
@@ -54,21 +67,21 @@ export default function Page() {
           📍 Romania 🇷🇴
         </p>
       </div>
-      <div className="mt-6 flex flex-wrap gap-3">
+      <nav aria-label="Primary actions" className="mt-6 flex flex-wrap gap-3">
         <Link
           href="/contact"
-          className={`${geistMono} rounded-lg bg-[#06b6d4] px-5 py-2 text-sm font-medium text-white transition hover:bg-[#06b6d4]/50`}
+          className={`${geistMono} rounded-lg bg-[#06b6d4] px-5 py-2 text-sm font-medium text-white transition hover:bg-[#06b6d4]/50 focus:outline-none focus:ring-2 focus:ring-[#06b6d4] focus:ring-offset-2 focus:ring-offset-[#0d1b2a]`}
         >
           Contact Me
         </Link>
         <Link
           href="/experience"
-          className={`${geistMono} rounded-lg border border-white/20 px-5 py-2 text-sm font-medium text-white transition hover:bg-white/10`}
+          className={`${geistMono} rounded-lg border border-white/20 px-5 py-2 text-sm font-medium text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#0d1b2a]`}
         >
           View Projects
         </Link>
-      </div>
-      <div className="mt-10 flex items-center gap-4 text-2xl text-white/70">
+      </nav>
+      <nav aria-label="Social media links" className="mt-10 flex items-center gap-4 text-2xl text-white/70">
         {socialLinksData.map((link) => (
           <SocialLink
             key={link.title}
@@ -77,7 +90,7 @@ export default function Page() {
             svgPath={link.svgPath}
           ></SocialLink>
         ))}
-      </div>
+      </nav>
     </>
   );
 }

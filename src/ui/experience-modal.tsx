@@ -2,6 +2,7 @@
 
 import { hankenGrotesk } from '@/ui/fonts';
 import { X } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 
 interface ExperienceStory {
   problem: string;
@@ -26,30 +27,87 @@ export default function ExperienceModal({
   company,
   story,
 }: ExperienceModalProps) {
+  const modalRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Focus management and keyboard trap
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    // Focus the close button when modal opens
+    closeButtonRef.current?.focus();
+
+    // Trap focus within modal
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab' || !modalRef.current) return;
+
+      const focusableElements = modalRef.current.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      const firstElement = focusableElements[0] as HTMLElement;
+      const lastElement = focusableElements[
+        focusableElements.length - 1
+      ] as HTMLElement;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement?.focus();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement?.focus();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    document.addEventListener('keydown', handleTab);
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.removeEventListener('keydown', handleTab);
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
     <div
       className="animate-in fade-in fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 [overscroll-behavior:contain]"
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-description"
     >
       <div
+        ref={modalRef}
         className={`${hankenGrotesk.className} animate-in fade-in zoom-in-95 relative flex max-h-[90vh] w-full max-w-3xl flex-col rounded-xl bg-[#142c46] pb-8 shadow-2xl duration-200 [overscroll-behavior-y:contain]`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Fixed Header */}
         <div className="flex-shrink-0 rounded-t-xl bg-[#142c46] p-8 pb-6">
           <button
+            ref={closeButtonRef}
             onClick={onClose}
-            className="absolute right-4 top-4 cursor-pointer rounded-lg p-2 text-white/70 transition-colors hover:bg-[#06b6d4] hover:text-white"
+            className="absolute right-4 top-4 cursor-pointer rounded-lg p-2 text-white/70 transition-colors hover:bg-[#06b6d4] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#06b6d4] focus:ring-offset-2 focus:ring-offset-[#142c46]"
+            aria-label="Close modal"
           >
-            <X size={24} />
+            <X size={24} aria-hidden="true" />
           </button>
 
-          <h2 className="mb-2 pr-12 text-3xl font-bold text-white">
+          <h2 id="modal-title" className="mb-2 pr-12 text-3xl font-bold text-white">
             {projectTitle}
           </h2>
-          <p className="text-sm text-white/70">
+          <p id="modal-description" className="text-sm text-white/70">
             {period} • {company}
           </p>
         </div>

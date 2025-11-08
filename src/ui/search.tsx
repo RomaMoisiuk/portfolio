@@ -10,8 +10,6 @@ export default function SearchBar({ searchText }: { searchText: string }) {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
 
-  console.log(searchParams);
-
   const handleSearch = useDebouncedCallback((search: string) => {
     const params = new URLSearchParams(searchParams);
 
@@ -20,20 +18,26 @@ export default function SearchBar({ searchText }: { searchText: string }) {
     } else {
       params.delete('s');
     }
-    console.log(pathname + '?' + params.toString());
     replace(pathname + '?' + params.toString());
   }, 300);
 
   return (
     <div
       className={`${geistMono.className} flex w-1/2 items-center gap-2 rounded-xl bg-[#142c46] pl-3`}
+      role="search"
     >
-      <Search size={18} color="white" />
+      <label htmlFor="search-input" className="sr-only">
+        {searchText}
+      </label>
+      <Search size={18} color="white" aria-hidden="true" />
       <input
-        type="text"
+        id="search-input"
+        type="search"
         placeholder={searchText}
-        className={`${geistMono.className} w-full border-none bg-transparent px-2 py-2 text-white outline-none`}
+        defaultValue={searchParams.get('s') || ''}
+        className={`${geistMono.className} w-full border-none bg-transparent px-2 py-2 text-white outline-none focus:ring-2 focus:ring-[#06b6d4] focus:ring-offset-2 focus:ring-offset-[#142c46]`}
         onChange={(e) => handleSearch(e.target.value)}
+        aria-label={searchText}
       />
     </div>
   );
